@@ -1,1 +1,15 @@
-<p>login works!</p>
+<h2 class="page-header">Login</h2>
+<!-- add event that calls a function when the form is submitted -->
+<form (submit)="onLoginSubmit()">
+  <div class="form-group">
+    <label>Username</label>
+    <!-- add NgModel to access the data in each of these inputs -->
+    <input type="text" class="form-control" [(ngModel)]="username" name="username">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" [(ngModel)]="password" name="password">
+  </div>
+  <input type="submit" class="btn btn-primary" value="Login">
+</form>
+
