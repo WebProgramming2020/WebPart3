@@ -35,6 +35,7 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
+//setting the users.js file to use the /users route
 app.use('/users', users);
 app.use('/bikes', bikes);
 

@@ -1,0 +1,24 @@
+<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+<div class="container">
+  <div class="form-container">
+    <form (submit)="createBike()">
+      <mat-form-field>
+        <input [(ngModel)]="serialNumber" name="serialNumber" matInput placeholder="Serial Number" />
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="model" name="model" matInput placeholder="Model" />
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="type" name="type" matInput placeholder="Type" />
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="imageUrl" name="imageUrl" matInput placeholder="Enter Link to Image " />
+      </mat-form-field>
+      <button mat-raised-button color="primary">Add Bike</button>
+    </form>
+    <button mat-raised-button color="warn">
+      <a routerLink="/bike-list">Go To List of All Bikes</a>
+    </button>
+  </div>
+</div>

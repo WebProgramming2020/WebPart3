@@ -17,6 +17,20 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './guards/auth.guard';
+import { BikeListComponent } from './components/bike-list/bike-list.component';
+import { BikeComponent } from './components/bike/bike.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+//material
+import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+  //import { MatNativeDateModule } from '@angular/material/datepicker/';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +40,9 @@ import { AuthGuard } from './guards/auth.guard';
     RegisterComponent,
     HomeComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    BikeListComponent,
+    BikeComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +51,20 @@ import { AuthGuard } from './guards/auth.guard';
     RouterModule,
     FlashMessagesModule.forRoot(),
     HttpClientModule,
+    FormsModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatToolbarModule,
+  
   ],
   providers: [ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]

@@ -1,0 +1,39 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+
+<div *ngIf="!loading">
+  <table mat-table [dataSource]="bikes" class="mat-elevation-z8">
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef> Bike  </th>
+      <td mat-cell *matCellDef="let bike"> {{ bike._id }} </td>
+    </ng-container>
+    <ng-container matColumnDef="serialNumber">
+      <th mat-header-cell *matHeaderCellDef> Serial Number </th>
+      <td mat-cell *matCellDef="let bike"> {{ bike.serialNumber }} </td>
+    </ng-container>
+    <ng-container matColumnDef="model">
+      <th mat-header-cell *matHeaderCellDef> Model </th>
+      <td mat-cell *matCellDef="let bike"> {{ bike.model }} </td>
+    </ng-container>
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Type </th>
+      <td mat-cell *matCellDef="let bike"> {{ bike.type }} </td>
+    </ng-container>
+    <ng-container matColumnDef="imageUrl">
+      <th mat-header-cell *matHeaderCellDef> Image URL </th>
+      <td mat-cell *matCellDef="let bike">  <img src = "{{ bike.imageUrl }}" [style.width.px] = 'bikeImageWidth'  > </td>
+    </ng-container>
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let bike"><button (click)="deleteBike(bike._id)" mat-raised-button color="warn">Delete</button></td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let bikes; columns: columns"></tr>
+  </table>
+  <button mat-raised-button color="warn">
+    <a routerLink="/bike">Add a bike</a>
+  </button>
+</div>

@@ -1,0 +1,9 @@
+#black{
+    background-color: black;
+    color: white;
+}
+#border{
+    border-style: solid;
+    border-color:black;
+    color: black;
+}
