@@ -57,6 +57,15 @@ export class RegisterComponent implements OnInit {
       });
       return false;
     }
+
+     // Validate Password
+     if (!this.validateService.validatePassword(user.password)) {
+      this.flashMessage.show('Please use a password that is 8 characters or more, contains one special character and one digit', {
+        cssClass: 'alert-danger',
+        timeout: 3000,
+      });
+      return false;
+    }
      // Register user
      this.authService.registerUser(user).subscribe(data => {
       if ((data as any).success) {
