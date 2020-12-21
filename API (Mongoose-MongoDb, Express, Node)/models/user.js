@@ -10,7 +10,8 @@ const UserSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   username: {
     type: String,
@@ -34,6 +35,11 @@ module.exports.addUser = function(newUser, callback){
       newUser.save(callback);
     });
   });
+}
+
+module.exports.getUserByUsername = function(username, callback){
+  const query = {username: username}
+  User.findOne(query, callback);
 }
 
 
