@@ -27,9 +27,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-  //import { MatNativeDateModule } from '@angular/material/datepicker/';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { UsersComponent } from './components/users/users.component';
 
 
 @NgModule({
@@ -42,7 +41,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     DashboardComponent,
     ProfileComponent,
     BikeListComponent,
-    BikeComponent
+    BikeComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -62,9 +62,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatDatepickerModule,
     MatToolbarModule,
-  
   ],
   providers: [ValidateService, AuthService, AuthGuard],
   bootstrap: [AppComponent]

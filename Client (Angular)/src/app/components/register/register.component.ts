@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   username: String;
   email: String;
   password: String;
+  CredentialsUsed: boolean;
 
   //inject any used services
   constructor(
@@ -31,7 +32,9 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
   onRegisterSubmit() {
     const user = {
       name: this.name,
@@ -69,14 +72,18 @@ export class RegisterComponent implements OnInit {
      // Register user
      this.authService.registerUser(user).subscribe(data => {
       if ((data as any).success) {
+        console.log((data as any).msg);
         this.flashMessage.show("You are now registered, please log in", {
           cssClass: "alert-success",
           timeout: 3000
         });
         this.router.navigate(['/login'])
-
-      } else {
-        this.flashMessage.show("Failed to register user", {cssClass: "alert-danger", timeout: 3000});
+      } 
+      else {
+        this.flashMessage.show((data as any).msg, {
+          cssClass: 'alert-danger',
+          timeout: 5000});
+        this.router.navigate(['register']);
       }
     });
   }

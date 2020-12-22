@@ -40,9 +40,9 @@ router.post("/register", async (req, res, next) => {
   console.log("USERNAME AVAILABLE: " + usernameNotTaken);
   if (!usernameNotTaken) {
     // not-not-taken means it is taken because it is a double negative
-    return res.status(400).json({
+    return res.json({
       //bad request
-      message: `Username unavailable.`,
+      msg: `Username unavailable.`,
       success: false,
     });
   }
@@ -51,8 +51,8 @@ router.post("/register", async (req, res, next) => {
   let emailNotRegistered = await validateEmail(newUser.email);
   console.log("EMAIL AVAILABLE: " + emailNotRegistered);
   if (!emailNotRegistered) {
-    return res.status(400).json({
-      message: `This email is already associated with a registered account.`,
+    return res.json({
+      msg: `This email is already associated with a registered account.`,
       success: false,
     });
   }
@@ -103,6 +103,32 @@ router.post("/authenticate", (req, res, next) => {
       }
     });
   });
+});
+
+//read all users from the database
+router.get("/", (req, res, next) => {
+  req.collection
+    User.find({})
+    .then((results) => res.json(results))
+    .catch((error) => res.send(error));
+});
+
+//read a specific user from the database
+router.get("/:username", (req, res, next) => {
+  let username = req.params.username;
+  req.collection
+    User.findOne({ username })
+    .then((results) => res.json(results))
+    .catch((error) => res.send(error));
+});
+
+//read a specific user from the database
+router.delete("/:username", (req, res, next) => {
+  let username = req.params.username;
+  req.collection
+    User.deleteOne({ username })
+    .then((results) => res.json(results))
+    .catch((error) => res.send(error));
 });
 
 // Profile

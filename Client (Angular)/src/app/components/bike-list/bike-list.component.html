@@ -3,9 +3,13 @@
 <mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
 
 <div *ngIf="!loading">
+  <!-- <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="username" name="username">
+    <button class="btn btn-outline-success" type="submit"  (click)="findBike()">Search</button>
+  </form> -->
   <table mat-table [dataSource]="bikes" class="mat-elevation-z8">
     <ng-container matColumnDef="_id">
-      <th mat-header-cell *matHeaderCellDef> Bike  </th>
+      <th mat-header-cell *matHeaderCellDef> Bike ID</th>
       <td mat-cell *matCellDef="let bike"> {{ bike._id }} </td>
     </ng-container>
     <ng-container matColumnDef="serialNumber">

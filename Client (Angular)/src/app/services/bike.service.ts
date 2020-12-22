@@ -18,8 +18,8 @@ export class BikeService {
   }
 
   
-  getBike(id): Observable<IBike[]> {
-    return this.http.get<IBike[]>(`${this.base_url}/bikes/:id`);
+  getBike(_id : string): Observable<IBike[]> {
+    return this.http.get<IBike[]>(`${this.base_url}/bikes/${_id}`);
   }
 
   createBike(serialNumber: string, model: string, type: string, imageUrl : string): Observable<IBike> {

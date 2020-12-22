@@ -42,7 +42,7 @@ export class BikeListComponent implements OnInit {
       )
       .subscribe((bikes: IBike[]) => {
         this.bikes = bikes;
-        this.successMsg = 'Successfully deleted bike';
+        this.successMsg = 'Successfully Deleted Bike';
       },
       (error: ErrorEvent) => {
         this.errorMsg = error.error.message;

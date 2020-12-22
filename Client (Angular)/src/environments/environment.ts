@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  api_url: 'http://localhost:3000/bikes'
+  api_url: 'http://localhost:3000/bikes',
+  api_url1: 'http://localhost:3000/users'
+
 };
 
 /*
